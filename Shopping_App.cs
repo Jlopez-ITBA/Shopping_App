@@ -4,8 +4,14 @@ namespace Inventory_App
     {
         static List<MeatItem> _meatItems = new List<MeatItem>(); // List for meat items
         static List<Produce> _produceList = new List<Produce>(); // List for produce items
-        public static Random RandomBarcode = new Random();
-        static List<CartItem> _shoppingCart = new List<CartItem>(); // Shopping cart
+        public static Random RandomBarcode = new Random(); //Random number Barcode generator
+        static List<CartItem> _shoppingCart = new List<CartItem>(); // Shopping cart 
+        
+        //Features to add: Menu after displaying current cart: 
+        //Shop Meats
+        //Shop Produce
+        //Remove item(s)
+        
 
         public static string GenerateBarcodeId() // Method for random number generation
         {
@@ -42,7 +48,7 @@ namespace Inventory_App
                         ViewShoppingCart(); // View shopping cart
                         break;
                     case "4":
-                        Checkout(); // Checkout process
+                        Checkout(); // Checkout process - Add receipt with link to donate $2 to charity for a chance to win (Twilio Extension)
                         running = false;
                         break;
                     case "5":
@@ -55,7 +61,7 @@ namespace Inventory_App
             }
         }
 
-        public class MeatItem //Glory
+        public class MeatItem 
         {
             public string Name { get; }
             public string Description { get; }
@@ -81,7 +87,7 @@ namespace Inventory_App
             }
         }
 
-        public class Produce //Dan
+        public class Produce 
         {
             public string Name { get; }
             public string Description { get; }
@@ -109,7 +115,7 @@ namespace Inventory_App
             }
         }
 
-        public class CartItem //Juan
+        public class CartItem 
         {
             public MeatItem MeatItem { get; }
             public Produce ProduceItem { get; }
@@ -118,7 +124,7 @@ namespace Inventory_App
             public string Description { get; }
             public bool IsProduce { get; }
 
-            // Constructor for MeatItem - Juan , Paul
+            // Constructor for MeatItem 
             public CartItem(MeatItem meatItem, decimal quantity, string barcode, string description)
             {
                 MeatItem = meatItem;
@@ -128,7 +134,7 @@ namespace Inventory_App
                 IsProduce = false; // Indicates this is a meat item
             }
 
-            // Constructor for Produce - Juan, Paul
+            // Constructor for Produce 
             public CartItem(Produce produceItem, decimal quantity, string barcode, string description)
             {
                 ProduceItem = produceItem;
@@ -183,7 +189,7 @@ namespace Inventory_App
             }
         }
 
-        // Shop Meat Method  - Glory
+        // Defining the ShopMeat Method 
         static void ShopMeat()
         {
             while (true)
@@ -225,7 +231,7 @@ namespace Inventory_App
             }
         }
         
-        // Shop Produce Method - Dan
+        // Shop Produce Method
         static void ShopProduce()
 {
     while (true)
@@ -285,7 +291,7 @@ namespace Inventory_App
         }
     }
 }
-        // View Shopping Cart - Paul
+        // View Shopping Cart
         static void ViewShoppingCart()
         {
             Console.Clear();
@@ -323,7 +329,7 @@ namespace Inventory_App
             Console.ReadLine(); // Wait for user input to return to menu
         }
                     
-        // Checkout Method - Juan
+        // Checkout Method 
         static void Checkout()
         {
             Console.Clear();
